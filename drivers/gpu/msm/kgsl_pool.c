@@ -296,6 +296,9 @@ int kgsl_pool_alloc_page(int *page_size, struct page **pages,
 	int order = get_order(*page_size);
 	int pool_idx;
 	size_t size = 0;
+#ifdef CONFIG_HUGEPAGE_POOL
+	gfp_t gfp_mask = kgsl_gfp_mask(order);
+#endif
 
 	if ((pages == NULL) || pages_len < (*page_size >> PAGE_SHIFT))
 		return -EINVAL;
