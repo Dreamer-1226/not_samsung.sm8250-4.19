@@ -818,6 +818,7 @@ KBUILD_CFLAGS += $(stackp-flags-y)
 ifdef CONFIG_CC_IS_CLANG
 ifdef CONFIG_POLLY_CLANG
 KBUILD_CFLAGS	+= -mllvm -polly \
+		   -mllvm -polly-parallel \
 		   -mllvm -polly-ast-use-context \
 		   -mllvm -polly-invariant-load-hoisting \
 		   -mllvm -polly-run-inliner \
