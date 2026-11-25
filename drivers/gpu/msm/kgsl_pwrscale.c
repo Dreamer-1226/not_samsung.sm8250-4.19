@@ -5,6 +5,9 @@
  */
 
 #include <linux/devfreq_cooling.h>
+#ifdef CONFIG_DEVFREQ_BOOST
+#include <linux/devfreq_boost.h>
+#endif
 #include <linux/slab.h>
 #include <linux/msm_kgsl.h>
 
@@ -802,6 +805,9 @@ int kgsl_pwrscale_init(struct device *dev, const char *governor)
 	}
 
 	pwrscale->devfreqptr = devfreq;
+#ifdef CONFIG_DEVFREQ_BOOST
+	devfreq_register_boost_device(DEVFREQ_GPU_FREQ, devfreq);
+#endif
 	pwrscale->cooling_dev = of_devfreq_cooling_register(
 					device->pdev->dev.of_node, devfreq);
 	if (IS_ERR(pwrscale->cooling_dev))
