@@ -3416,7 +3416,6 @@ static int msm_compr_volume_put(struct snd_kcontrol *kcontrol,
 			__func__, fe_id);
 		return -EINVAL;
 	}
-
 	mutex_lock(&pdata->lock);
 	cstream = pdata->cstream[fe_id];
 	volume = pdata->volume[fe_id];

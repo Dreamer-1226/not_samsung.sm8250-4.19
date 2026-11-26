@@ -99,6 +99,7 @@
  * when preemption is disabled for long periods of time. Have
  * it only default enabled for PREEMPT_RT.
  */
+
 #define SCHED_FEAT_RT_PUSH_IPI 1
 #else
 #define SCHED_FEAT_RT_PUSH_IPI 0
