@@ -67,7 +67,6 @@ static int __lzorle_compress(const u8 *src, unsigned int slen,
 {
 	size_t tmp_len = *dlen; /* size_t(ulong) <-> uint on 64 bit */
 	int err;
-	
 	err = lzorle1x_1_compress_safe(src, slen, dst, &tmp_len, ctx);
 
 	if (err != LZO_E_OK)
